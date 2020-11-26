@@ -18,19 +18,19 @@ class Pokemon(models.Model):
 
 class PokemonEntity(models.Model):
     """Объект покемон на карте. """
-    Pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE, verbose_name="Вид покемона")
-    Lat = models.FloatField(null=True, blank=True, verbose_name="Широта")
-    Lon = models.FloatField(null=True, blank=True, verbose_name="Долгота")
-    Appeared_at = models.DateTimeField(null=True, blank=True, verbose_name="Появится в")
-    Disappeared_ar = models.DateTimeField(null=True, blank=True, verbose_name="Исчезнет в")
-    Level = models.IntegerField(null=True, blank=True, verbose_name="Уровень")
-    Health = models.IntegerField(null=True, blank=True, verbose_name="Здоровье")
-    Strength = models.IntegerField(null=True, blank=True, verbose_name="Сила")
-    Defence = models.IntegerField(null=True, blank=True, verbose_name="Защита")
-    Stamina = models.IntegerField(null=True, blank=True, verbose_name="Выносливость")
+    pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE, verbose_name="Вид покемона")
+    lat = models.FloatField(null=True, blank=True, verbose_name="Широта")
+    lon = models.FloatField(null=True, blank=True, verbose_name="Долгота")
+    appeared_at = models.DateTimeField(null=True, blank=True, verbose_name="Появится в")
+    disappeared_ar = models.DateTimeField(null=True, blank=True, verbose_name="Исчезнет в")
+    level = models.IntegerField(null=True, blank=True, verbose_name="Уровень")
+    health = models.IntegerField(null=True, blank=True, verbose_name="Здоровье")
+    strength = models.IntegerField(null=True, blank=True, verbose_name="Сила")
+    defence = models.IntegerField(null=True, blank=True, verbose_name="Защита")
+    stamina = models.IntegerField(null=True, blank=True, verbose_name="Выносливость")
 
     def __str__(self):
-        return f'{self.Pokemon} № {self.id}'
+        return f'{self.pokemon} № {self.id}'
 
 
 
