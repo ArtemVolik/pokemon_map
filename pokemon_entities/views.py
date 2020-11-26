@@ -65,7 +65,7 @@ def show_pokemon(request, pokemon_id):
         }
         pokemon['previous_evolution'] = previous_evolution
 
-    #Вариант1
+
     related_pokemons = requested_pokemon.next_evolution.all()
     if related_pokemons:
         related_pokemon = related_pokemons[0]
@@ -75,16 +75,6 @@ def show_pokemon(request, pokemon_id):
                         "img_url": related_pokemon.image.url
                         }
         pokemon['next_evolution'] = next_evolution
-    # Вариант 2
-    # if Pokemon.objects.filter(previous_evolution=requested_pokemon):
-    #     next_pokemon = Pokemon.objects.get(previous_evolution=requested_pokemon)
-    #     next_evolution = {
-    #             "title_ru": next_pokemon.title,
-    #             "pokemon_id": next_pokemon.id,
-    #             "img_url": next_pokemon.image.url
-    #             }
-    #     pokemon['next_evolution'] = next_evolution
-
 
     folium_map = folium.Map(location=MOSCOW_CENTER, zoom_start=12)
     for pokemon_entity in PokemonEntity.objects.filter(Pokemon_id=pokemon_id):
